@@ -11,6 +11,9 @@ echo "Creating the ${C9_USER} user in MySQL"
 mysql -e "CREATE USER '${C9_USER}'@'%' IDENTIFIED BY '';"
 echo "Granting privileges"
 mysql -e "GRANT ALL PRIVILEGES ON *.* TO '${C9_USER}'@'%' WITH GRANT OPTION;"
+echo "Creating .sqliterc file"
+echo ".headers on" > ~/.sqliterc
+echo ".mode column" >> ~/.sqliterc
 echo "Checking for pip upgrade"
 # pip3 install --upgrade pip
 # temporarily removed due to issues with pip 19.3
