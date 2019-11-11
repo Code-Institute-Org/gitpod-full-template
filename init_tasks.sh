@@ -14,10 +14,11 @@ mysql -e "GRANT ALL PRIVILEGES ON *.* TO '${C9_USER}'@'%' WITH GRANT OPTION;"
 echo "Creating .sqliterc file"
 echo ".headers on" > ~/.sqliterc
 echo ".mode column" >> ~/.sqliterc
+echo "Adding run aliases"
 echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"' >> ~/.bashrc
 echo "Checking for pip upgrade"
-# pip3 install --upgrade pip
-# temporarily removed due to issues with pip 19.3
+pip3 install --upgrade pip
 echo "Done"
+source ~/.bashrc
 rm $GITPOD_REPO_ROOT/.gitpod*
 rm $GITPOD_REPO_ROOT/init_tasks.sh
