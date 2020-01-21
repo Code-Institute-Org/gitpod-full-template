@@ -18,8 +18,8 @@ echo "Adding run aliases"
 echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"' >> ~/.bashrc
 echo 'alias python=python3' >> ~/.bashrc
 echo 'alias pip=pip3' >> ~/.bashrc
-echo "Checking for pip upgrade"
-pip3 install --upgrade pip
+# echo "Checking for pip upgrade"
+# pip3 install --upgrade pip
 echo "Done"
 source ~/.bashrc
 rm $GITPOD_REPO_ROOT/.gitpod*
