@@ -1,4 +1,4 @@
-# Code Institute
+![Code Institute](https://codeinstitute.s3.amazonaws.com/fullstack/Web_grey_logo.png)
 
 Welcome USER_NAME,
 
