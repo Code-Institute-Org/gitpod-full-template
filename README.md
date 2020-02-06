@@ -1,4 +1,4 @@
-![Code Institute](https://codeinstitute.s3.amazonaws.com/fullstack/Web_grey_logo.png)
+<img src="https://codeinstitute.s3.amazonaws.com/fullstack/Web_grey_logo.png" style="margin: 0;">
 
 Welcome USER_NAME,
 
