@@ -2,9 +2,11 @@
 
 Welcome USER_NAME,
 
-We have preinstalled all of the tools you need to get started.
+This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change for your own project.
 
-To run a frontend application in GitPod, in the terminal, type:
+## Gitpod Reminders
+
+To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
 `python3 -m http.server`
 
@@ -12,7 +14,7 @@ A blue button should appear to click: *Expose*,
 
 Another blue button should appear to click: *Open Browser*.
 
-To run a backend python file, type `python3 app.py`, if your python file is named `app.py` of course.
+To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
 A blue button should appear to click: *Expose*,
 
