@@ -2,6 +2,8 @@
 
 # Creates a user record for the current Cloud9 user
 # Gives a personalised greeting
+# Adds configuration options for SQLite
+# Creates run aliases
 # Author: Matt Rudge
 
 echo "Setting the greeting"
