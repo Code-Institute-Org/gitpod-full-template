@@ -3,5 +3,13 @@
    "python.linting.enabled": true,
    "python.linting.pep8Enabled": false,
    "python.linting.flake8Enabled": true,
-    "python.terminal.activateEnvironment": false
+    "python.terminal.activateEnvironment": false,
+   "files.exclude": {
+      "**/.git*": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/.theia": true,
+   }
 }
