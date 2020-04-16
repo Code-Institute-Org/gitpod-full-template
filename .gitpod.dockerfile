@@ -21,6 +21,8 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75
 
 COPY .theia/mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
+COPY .theia/client.cnf /etc/mysql/mysql.conf.d/client.cnf
+
 COPY .theia/start_mysql.sh /etc/mysql/mysql-bashrc-launch.sh
 
 USER gitpod
