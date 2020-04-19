@@ -1,16 +1,17 @@
 {
-   "python.linting.pylintEnabled": false,
-   "python.linting.enabled": false,
-   "python.linting.pep8Enabled": false,
-   "python.linting.flake8Enabled": false,
-   "python.terminal.activateEnvironment": false,
-   "cornflakes.linter.executablePath": "/home/gitpod/.pyenv/shims/flake8",
-   "files.exclude": {
-      "**/.git*": true,
-      "**/.svn": true,
-      "**/.hg": true,
-      "**/CVS": true,
-      "**/.DS_Store": true,
-      "**/.theia": true,
-   }
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintArgs": ["--load-plugins=pylint_flask"],
+  "python.linting.pep8Enabled": false,
+  "python.linting.flake8Enabled": false,
+  "python.terminal.activateEnvironment": false,
+  "cornflakes.linter.executablePath": "/home/gitpod/.pyenv/shims/flake8",
+  "files.exclude": {
+    "**/.git*": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.theia": true
+  }
 }
