@@ -6,7 +6,8 @@
    "python.terminal.activateEnvironment": false,
    "cornflakes.linter.executablePath": "/home/gitpod/.pyenv/shims/flake8",
    "files.exclude": {
-      "**/.git*": true,
+      "**/.git": true,
+      "**/.gitp*": true,
       "**/.svn": true,
       "**/.hg": true,
       "**/CVS": true,
