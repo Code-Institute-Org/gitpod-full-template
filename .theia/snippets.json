@@ -1,0 +1,7 @@
+{
+    "html": {
+        "snippets": {
+            "form": "form>input>input:submit[value=\"Submit\"]"
+        }
+    }
+}
