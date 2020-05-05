@@ -14,4 +14,7 @@
       "**/.DS_Store": true,
       "**/.theia": true,
    }
+},
+{
+   "emmet.extensionsPath": ".theia"
 }
