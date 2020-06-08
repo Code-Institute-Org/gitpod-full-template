@@ -1,0 +1,12 @@
+[
+    {
+        "command": "HookyQR.beautifyFile",
+        "keybinding": "ctrl+shift+b",
+        "when": "editorFocus"
+    },
+    {
+        "command": "HookyQR.beautify",
+        "keybinding": "ctrl+alt+b",
+        "when": "editorFocus"
+    }
+]

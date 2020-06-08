@@ -26,6 +26,8 @@ In Gitpod you have superuser security privileges by default. Therefore you do no
 
 We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
 
+**June 2020:** Added the _Beautify_ code beautifier extension in lieu of the _Prettier_ extension. Use `Ctrl+Shift+B` to format entire file, or `Ctrl+Alt+B` to format a selection.
+
 **April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
 **April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
