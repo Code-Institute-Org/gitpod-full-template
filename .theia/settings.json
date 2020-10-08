@@ -16,6 +16,8 @@
       "**/.DS_Store": true,
       "**/.theia": true,
       "**/core.Microsoft*": true,
+      "**/core.mongo*": true,
+      "**/core.python*": true,
    },
    "emmet.extensionsPath": ".theia"
 }
