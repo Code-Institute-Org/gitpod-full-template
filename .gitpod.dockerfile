@@ -5,12 +5,11 @@ USER root
 RUN curl https://cli-assets.heroku.com/install.sh | sh
 
 # Setup MongoDB and MySQL
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4 && \
-    echo "deb http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.0.list  && \
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 20691eec35216c63caf66ce1656408e390cfb1f5 && \
+    echo "deb http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list  && \
     apt-get update -y  && \
     touch /etc/init.d/mongod  && \
-    apt-get -y install mongodb-org mongodb-org-server -y  && \
-    apt-get update -y  && \
+    apt-get -y install mongodb-org-shell -y  && \
     apt-get -y install links  && \
     apt-get install -y mysql-server && \
     apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* && \
