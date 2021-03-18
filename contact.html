@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
+        type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <title>Rosie</title>
 </head>
+
 <body>
     <header>
         <div class="row no-gutters">
@@ -25,17 +29,21 @@
                 <div class="row no-gutters">
                     <div class="col">
                         <ul id="nav" class="list-inline menucontainer">
-                            <li class="col-6 col-sm-3 ui-menu-color-home list-inline-item menuitem">
-                                <a href="#" class="hvr-sweep-to-bottom"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a>
+                            <li class="col-6 col-sm-3 list-inline-item ui-menu-color-home menuitem">
+                                <a href="index.html" class="hvr-sweep-to-bottom"><i class="fa fa-home"
+                                        aria-hidden="true"></i><span>Home</span></a>
                             </li>
-                            <li class="col-6 col-sm-3 ui-menu-color-resume list-inline-item menuitem">
-                                <a href="#" class="hvr-sweep-to-bottom"><i class="fa fa-graduation-cap" aria-hidden="true"></i><span>Resume</span></a>
+                            <li class="col-6 col-sm-3 list-inline-item ui-menu-color-resume menuitem">
+                                <a href="resume.html" class="hvr-sweep-to-bottom"><i class="fa fa-graduation-cap"
+                                        aria-hidden="true"></i><span>Resume</span></a>
                             </li>
-                            <li class="col-6 col-sm-3 ui-menu-color-contact list-inline-item menuitem">
-                                <a href="#" class="hvr-sweep-to-bottom"><i class="far fa-comment" aria-hidden="true"></i><span>Contact</span></a>
+                            <li class="col-6 col-sm-3 list-inline-item ui-menu-color-contact menuitem">
+                                <a href="contact.html" class="hvr-sweep-to-bottom"><i class="fa fa-comment-o"
+                                        aria-hidden="true"></i><span>Contact</span></a>
                             </li>
-                            <li class="col-6 col-sm-3 ui-menu-color-download list-inline-item menuitem">
-                                <a href="#" class="hvr-sweep-to-bottom"><i class="fa fa-download" aria-hidden="true"></i><span>Download</span></a>
+                            <li class="col-6 col-sm-3 list-inline-item ui-menu-color-download menuitem">
+                                <a href="assets/cv/sample-cv.pdf" target="_blank" class="hvr-sweep-to-bottom"><i
+                                        class="fa fa-download" aria-hidden="true"></i><span>Download CV</span></a>
                             </li>
                         </ul>
                     </div>
@@ -43,7 +51,29 @@
             </div>
         </div>
     </header>
-    <section>
+    <section class="container-fluid">
+        <div class="row bg-color-contact">
+            <div class="col">
+                <h3 class="contact-heading uppercase text-center">Got a project in mind?</h3>
+                <h5 class="uppercase text-center">Let's work together</h5>
+
+                <div class="center-form">
+                    <form>
+                        <input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required />
+                        <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email"
+                            required />
+                        <textarea rows="5" name="projectsummary" id="projectsummary" class="form-control"
+                            placeholder="Project description" required></textarea>
+                        <div class="form-row text-cnter">
+                            <div class="col">
+                                <button type="submit" class="btn btn-secondary">Send Project Request</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
 
     </section>
     <footer class="container-fluid">
@@ -51,14 +81,15 @@
             <div class="col-sm-4">
                 <h5 class="uppercase general-sub">About</h5>
                 <p class="inline-block">
-                    Full Stack Web Developer. Skilled in everything from HTML to Heroku. The capacity for structural and design thinking.
+                    Full Stack Web Developer. Skilled in everything from HTML to Heroku. The capacity for structural and
+                    design thinking.
                 </p>
             </div>
             <div class="col-sm-4">
                 <h5 class="uppercase general-sub">Download</h5>
                 <p class="inline-block">
                     Need a printable version of my CV? Download it here.
-                    <a href="#" target="_blank" class="cv-pdf">
+                    <a href="assets/cv/sample-cv.pdf" target="_blank" class="cv-pdf">
                         <i class="fa fa-download" aria-hidden="true"></i>
                         <span class="sr-only">Download link.</span>
                     </a>
@@ -108,4 +139,5 @@
         </div>
     </footer>
 </body>
+
 </html>
