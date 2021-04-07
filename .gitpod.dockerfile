@@ -19,11 +19,11 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 20691eec35216c6
 
 # Create our own config files
 
-COPY .theia/mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+COPY .vscode/mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
-COPY .theia/client.cnf /etc/mysql/mysql.conf.d/client.cnf
+COPY .vscode/client.cnf /etc/mysql/mysql.conf.d/client.cnf
 
-COPY .theia/start_mysql.sh /etc/mysql/mysql-bashrc-launch.sh
+COPY .vscode/start_mysql.sh /etc/mysql/mysql-bashrc-launch.sh
 
 USER gitpod
 
