@@ -1,7 +1,9 @@
 image:
   file: .gitpod.dockerfile
 tasks:
- - init: . ${GITPOD_REPO_ROOT}/.vscode/init_tasks.sh    
+ - init: . ${GITPOD_REPO_ROOT}/.vscode/init_tasks.sh
+ - command: . ${GITPOD_REPO_ROOT}/.vscode/analytics.sh
+   name: Startup ping
 vscode:
   extensions:
     - ms-python.python
