@@ -24,7 +24,7 @@ In Gitpod you have superuser security privileges by default. Therefore you do no
 
 To log into the Heroku toolbelt CLI you can use:
 
-`heroku login i`
+`heroku login -i`
 
 If you have Multi-Factor Authentication (MFA) enabled then use the API key that was generated for you at [Heroku](https://dashboard.heroku.com/account).
 This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
