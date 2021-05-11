@@ -33,6 +33,10 @@ This API key is unique and private to you so do not share it. If you accidently 
 
 We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
+**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+
+**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+
 **October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
 **October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
