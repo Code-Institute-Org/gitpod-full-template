@@ -4,6 +4,4 @@
 
 echo 'alias heroku_config=". $GITPOD_REPO_ROOT/.vscode/heroku_config.sh"' >> ~/.bashrc
 
-source ~/.bashrc
-
-echo Terminal refreshed
+echo Post-upgrade changes applied
