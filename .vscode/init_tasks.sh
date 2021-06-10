@@ -20,3 +20,4 @@ fi
 echo "Creating .sqliterc file"
 echo ".headers on" > ~/.sqliterc
 echo ".mode column" >> ~/.sqliterc
+source ~/.bashrc
