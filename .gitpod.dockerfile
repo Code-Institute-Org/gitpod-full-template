@@ -35,6 +35,7 @@ RUN echo 'alias python=python3' >> ~/.bashrc
 RUN echo 'alias pip=pip3' >> ~/.bashrc
 RUN echo 'python3 $GITPOD_REPO_ROOT/.vscode/font_fix.py' >> ~/.bashrc
 RUN echo ". /etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc
+RUN echo 'python3 $GITPOD_REPO_ROOT/.vscode/font_fix.py' >> ~/.bashrc
 
 # Local environment variables
 # C9USER is temporary to allow the MySQL Gist to run
