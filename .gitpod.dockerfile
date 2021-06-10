@@ -30,6 +30,11 @@ USER gitpod
 # Start MySQL when we log in
 
 RUN echo ". /etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc
+RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"' >> ~/.bashrc
+RUN echo 'alias heroku_config=". $GITPOD_REPO_ROOT/.vscode/heroku_config.sh"' >> ~/.bashrc
+RUN echo 'alias python=python3' >> ~/.bashrc
+RUN echo 'alias pip=pip3' >> ~/.bashrc
+RUN echo 'python3 $GITPOD_REPO_ROOT/.vscode/font_fix.py' >> ~/.bashrc
 
 # Local environment variables
 # C9USER is temporary to allow the MySQL Gist to run
