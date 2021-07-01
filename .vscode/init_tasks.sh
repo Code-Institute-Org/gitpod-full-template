@@ -20,4 +20,7 @@ fi
 echo "Creating .sqliterc file"
 echo ".headers on" > ~/.sqliterc
 echo ".mode column" >> ~/.sqliterc
-source ~/.bashrc
+echo "Your workspace is ready to use. Happy coding!"
+
+# Open README.md file
+code README.md
