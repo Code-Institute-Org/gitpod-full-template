@@ -11,6 +11,8 @@ URL=https://1xthkmzwg3.execute-api.eu-west-1.amazonaws.com/prod/lrsapi/
 API_KEY=jceBCdeGZP9RDeUNCfM4jIQ39Cx0jtG51QgcwDwc
 VERB="started"
 
+clear
+
 while true; do
 
     DATA="{\"activity_time\":\"$(date +%Y-%m-%dT%H:%M:%S).000Z\",\"actor\":\"${UUID}\",\"verb\":\"${VERB}\",\"activity_object\":\"Gitpod Workspace\",\"extra_data\":\"{}\"}"
