@@ -63,6 +63,7 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
     echo 'alias heroku_config=". $GITPOD_REPO_ROOT/.vscode/heroku_config.sh"' >> ~/.bashrc && \
     echo 'alias python=python3' >> ~/.bashrc && \
     echo 'alias pip=pip3' >> ~/.bashrc && \
+    echo 'alias font_fix="python3 $GITPOD_REPO_ROOT/.vscode/font_fix.py"' >> ~/.bashrc && \
     echo ". /etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc
 
 # Local environment variables
