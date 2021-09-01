@@ -38,6 +38,8 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
+**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+
 **July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
 **July 2 2021:** Remove extensions that are not available in Open VSX.
