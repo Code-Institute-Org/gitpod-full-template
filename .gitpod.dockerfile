@@ -66,7 +66,12 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
     echo 'alias font_fix="python3 $GITPOD_REPO_ROOT/.vscode/font_fix.py"' >> ~/.bashrc && \
     echo 'alias set_pg="export PGHOSTADDR=127.0.0.1"' >> ~/.bashrc && \
     echo 'alias mongosh=mongo' >> ~/.bashrc && \
-    echo ". /etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc
+    echo ". /etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc && \
+    echo "FILE=$GITPOD_REPO_ROOT/.vscode/post_upgrade.sh"  >> ~/.bashrc && \
+    echo 'if [[ -f "$FILE" ]]; then' >> ~/.bashrc && \
+    echo ". $FILE" >> ~/.bashrc && \
+    echo "fi" >> ~/.bashrc
+fi
 
 # Local environment variables
 # C9USER is temporary to allow the MySQL Gist to run
