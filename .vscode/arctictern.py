@@ -85,7 +85,7 @@ def needs_upgrade():
     else:
         THIS_VERSION = 1.0
         with open(".vscode/version.txt", "w") as f:
-            f.write(THIS_VERSION)
+            f.write(str(THIS_VERSION))
     
     r = requests.get(BASE_URL + ".vscode/version.txt")
     CURRENT_VERSION = float(r.content)
