@@ -81,7 +81,7 @@ def needs_upgrade():
 
     if exists(".vscode/version.txt"):
         with open(".vscode/version.txt", "r") as f:
-            THIS_VERSION = float(f.read())
+            THIS_VERSION = float(f.read().strip())
     else:
         THIS_VERSION = 1.0
         with open(".vscode/version.txt", "w") as f:
