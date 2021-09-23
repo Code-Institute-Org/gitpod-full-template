@@ -89,7 +89,8 @@ def needs_upgrade():
     
     r = requests.get(BASE_URL + ".vscode/version.txt")
     CURRENT_VERSION = float(r.content)
-    print(CURRENT_VERSION)
+    print(f"Upstream version: {CURRENT_VERSION}")
+    print(f"Local version: {THIS_VERSION}")
 
     return CURRENT_VERSION > THIS_VERSION
 
