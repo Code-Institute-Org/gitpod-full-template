@@ -64,8 +64,8 @@ UPGRADE_FILE_LIST = [{"filename": ".vscode/client.cnf",
                      {"filename": ".vscode/uptime.sh",
                       "url": ".vscode/uptime.sh"
                       },
-                     {"filename": ".vscode/start_mysql.sh",
-                      "url": ".vscode/start_mysql.sh"
+                     {"filename": ".vscode/arctictern.py",
+                      "url": ".vscode/arctictern.py"
                       }]
 
 
@@ -77,16 +77,24 @@ def needs_upgrade():
     """
 
     try:
-        with open(".vscode/version.txt") as f:
+        with open(".vscode/version.txt", "r") as f:
             THIS_VERSION = float(f.read())
     except:
         THIS_VERSION = 1.0
+        with open(".vscode/version.txt", "w") as f:
+            f.write(THIS_VERSION)
     
     r = requests.get(BASE_URL + ".vscode/version.txt")
     CURRENT_VERSION = float(r.content)
     print(CURRENT_VERSION)
 
     return CURRENT_VERSION > THIS_VERSION
+
+
+def make_new_yml():
+
+    with open(".gitpod.yml", "w") as f:
+        f.write(YML_CONTENT)
 
 
 def build_post_upgrade():
