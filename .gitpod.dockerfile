@@ -69,8 +69,10 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
     echo 'alias mongosh=mongo' >> ~/.bashrc && \
     echo ". /etc/mysql/mysql-bashrc-launch.sh" >> ~/.bashrc && \
     echo "FILE=$GITPOD_REPO_ROOT/.vscode/post_upgrade.sh"  >> ~/.bashrc && \
-    echo 'if [[ -f "$FILE" ]]; then' >> ~/.bashrc && \
-    echo '. "$GITPOD_REPO_ROOT/.vscode/post_upgrade.sh"' >> ~/.bashrc && \
+    echo 'if [ -z "$POST_UPGRADE_RUN" ]; then' >> ~/.bashrc && \
+    echo '  if [[ -f "$FILE" ]]; then' >> ~/.bashrc && \
+    echo '    . "$GITPOD_REPO_ROOT/.vscode/post_upgrade.sh"' >> ~/.bashrc && \
+    echo "  fi" >> ~/.bashrc
     echo "fi" >> ~/.bashrc
 
 # Local environment variables
