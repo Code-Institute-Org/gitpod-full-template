@@ -68,6 +68,8 @@ UPGRADE_FILE_LIST = [{"filename": ".vscode/client.cnf",
                       "url": ".vscode/arctictern.py"
                       }]
 
+FINAL_LINES = "\nexport POST_UPGRADE_RUN=1\nsource ~/.bashrc\n"
+
 
 def needs_upgrade():
     """
@@ -86,6 +88,7 @@ def needs_upgrade():
     
     r = requests.get(BASE_URL + ".vscode/version.txt")
     CURRENT_VERSION = float(r.content)
+    print(CURRENT_VERSION)
 
     return CURRENT_VERSION > THIS_VERSION
 
@@ -108,7 +111,7 @@ def build_post_upgrade():
             content += v
 
     if content:
-        content += "\nsource ~/.bashrc\n"
+        content += FINAL_LINES
         with open(".vscode/post_upgrade.sh", "w") as f:
             f.writelines(content)
     
@@ -182,7 +185,7 @@ if __name__ == "__main__":
     print("The default action is to upgrade the workspace to the latest version.")
     print(f"Usage: python3 {sys.argv[0]} [--nobackup --migrate]")
 
-    if BACKUP:
+    if not BACKUP:
         print("If the --nobackup switch is provided, then changed files will not be backed up.")
     if not MIGRATE:
         print("If the --migrate switch is provided, the repo will be migrated from Theia to VS Code")
