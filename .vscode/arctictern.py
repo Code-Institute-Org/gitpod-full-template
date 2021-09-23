@@ -94,12 +94,6 @@ def needs_upgrade():
     return CURRENT_VERSION > THIS_VERSION
 
 
-def make_new_yml():
-
-    with open(".gitpod.yml", "w") as f:
-        f.write(YML_CONTENT)
-
-
 def build_post_upgrade():
 
     r = requests.get(BASE_URL + ".vscode/upgrades.json")
