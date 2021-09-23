@@ -9,6 +9,7 @@ import requests
 import shutil
 import subprocess
 import sys
+from os.path import exists
 
 BASE_URL = "https://raw.githubusercontent.com/Code-Institute-Org/gitpod-full-template/master/"
 
@@ -78,7 +79,7 @@ def needs_upgrade():
     Returns True if upgrade is needed, False if not.
     """
 
-    if os.isfile(".vscode/version.txt":
+    if exists(".vscode/version.txt"):
         with open(".vscode/version.txt", "r") as f:
             THIS_VERSION = float(f.read())
     else:
