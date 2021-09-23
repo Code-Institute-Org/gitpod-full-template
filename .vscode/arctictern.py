@@ -182,7 +182,7 @@ if __name__ == "__main__":
     print("The default action is to upgrade the workspace to the latest version.")
     print(f"Usage: python3 {sys.argv[0]} [--nobackup --migrate]")
 
-    if not BACKUP:
+    if BACKUP:
         print("If the --nobackup switch is provided, then changed files will not be backed up.")
     if not MIGRATE:
         print("If the --migrate switch is provided, the repo will be migrated from Theia to VS Code")
