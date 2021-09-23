@@ -78,10 +78,10 @@ def needs_upgrade():
     Returns True if upgrade is needed, False if not.
     """
 
-    try:
+    if os.isfile(".vscode/version.txt":
         with open(".vscode/version.txt", "r") as f:
             THIS_VERSION = float(f.read())
-    except:
+    else:
         THIS_VERSION = 1.0
         with open(".vscode/version.txt", "w") as f:
             f.write(THIS_VERSION)
