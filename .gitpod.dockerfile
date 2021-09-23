@@ -72,7 +72,6 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
     echo 'if [[ -f "$FILE" ]]; then' >> ~/.bashrc && \
     echo ". $FILE" >> ~/.bashrc && \
     echo "fi" >> ~/.bashrc
-fi
 
 # Local environment variables
 # C9USER is temporary to allow the MySQL Gist to run
