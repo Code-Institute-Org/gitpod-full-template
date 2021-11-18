@@ -65,6 +65,9 @@ UPGRADE_FILE_LIST = [{"filename": ".vscode/client.cnf",
                      {"filename": ".vscode/uptime.sh",
                       "url": ".vscode/uptime.sh"
                       },
+                     {"filename": ".vscode/make_url.py",
+                      "url": ".vscode/make_url.py"
+                     },
                      {"filename": ".vscode/arctictern.py",
                       "url": ".vscode/arctictern.py"
                       }]
