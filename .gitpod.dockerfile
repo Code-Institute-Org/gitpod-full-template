@@ -59,7 +59,7 @@ COPY .vscode/start_mysql.sh /etc/mysql/mysql-bashrc-launch.sh
 # Start MySQL when we log in
 # Add aliases
 
-ENV pyver=`python3 --version`
+ENV pyver=3.8.12
 
 RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"' >> ~/.bashrc && \
     echo 'alias heroku_config=". $GITPOD_REPO_ROOT/.vscode/heroku_config.sh"' >> ~/.bashrc && \
@@ -77,6 +77,7 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
     echo '    . "$GITPOD_REPO_ROOT/.vscode/post_upgrade.sh"' >> ~/.bashrc && \
     echo "  fi" >> ~/.bashrc && \
     echo "fi" >> ~/.bashrc && \
+    echo "export pyver=`python3 --version`" >> ~/.bashrc && \
     echo "ln -s /home/gitpod/.pyenv/versions/${pyver:7}/ /workspace/.pip-modules" >> ~/.bashrc
 
 # Local environment variables
