@@ -1,4 +1,5 @@
 {
   "1.210831": "echo 'unset DATABASE_URL' >> ~/.bashrc\necho 'unset PGHOSTADDR' >> ~/.bashrc",
-  "1.211118": "echo 'alias make_url=\'python3 $GITPOD_REPO_ROOT/.vscode/make_url.py\'' >> ~/.bashrc"
+  "1.211118": "echo 'alias make_url=\'python3 $GITPOD_REPO_ROOT/.vscode/make_url.py\'' >> ~/.bashrc",
+  "1.211202": "echo 'ln -s /home/gitpod/.pyenv/versions/3.8.12/ /workspace/.pip-modules' >> ~/.bashrc"
 }
