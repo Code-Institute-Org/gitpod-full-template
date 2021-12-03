@@ -20,6 +20,8 @@ fi
 echo "Creating .sqliterc file"
 echo ".headers on" > ~/.sqliterc
 echo ".mode column" >> ~/.sqliterc
+echo "Uninstalling unused dependencies..."
+pip3 uninstall -y -r <(pip3 freeze) > /dev/null
 echo "Your workspace is ready to use. Happy coding!"
 
 # Open README.md file
