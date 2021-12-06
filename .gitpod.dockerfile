@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full:commit-8fc141dbdd92030a435ead06617c6d37651d8312
+FROM gitpod/workspace-full:commit-2f5689a36391544b3c592f987c5a6abe230f22fe
 
 # Setup Heroku CLI
 RUN curl https://cli-assets.heroku.com/install.sh | sh
