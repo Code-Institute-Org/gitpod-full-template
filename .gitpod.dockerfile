@@ -77,10 +77,7 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
     echo '  if [[ -f "$FILE" ]]; then' >> ~/.bashrc && \
     echo '    . "$GITPOD_REPO_ROOT/.vscode/post_upgrade.sh"' >> ~/.bashrc && \
     echo "  fi" >> ~/.bashrc && \
-    echo "fi" >> ~/.bashrc && \
-    echo "export pyver=`python3 --version`" >> ~/.bashrc && \
-    echo 'pip3 uninstall -y -r "$GITPOD_REPO_ROOT/.vscode/deps.txt" > /dev/null' >> ~/.bashrc && \
-    echo "ln -s /home/gitpod/.pyenv/versions/3.8.12/ /workspace/.pip-modules" >> ~/.bashrc
+    echo "fi" >> ~/.bashrc
 
 # Local environment variables
 # C9USER is temporary to allow the MySQL Gist to run
