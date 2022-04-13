@@ -20,10 +20,4 @@ fi
 echo "Creating .sqliterc file"
 echo ".headers on" > ~/.sqliterc
 echo ".mode column" >> ~/.sqliterc
-echo "Uninstalling unused dependencies..."
-pip3 freeze > ${GITPOD_REPO_ROOT}/.vscode/deps.txt
-pip3 uninstall -y -r ${GITPOD_REPO_ROOT}/.vscode/deps.txt > /dev/null
 echo "Your workspace is ready to use. Happy coding!"
-
-# Open README.md file
-code README.md
