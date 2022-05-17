@@ -22,5 +22,12 @@ if [[ -z "${HEROKU_API_KEY}" ]]; then
    . ~/.bashrc > /dev/null
    echo Done!
 else
-   echo API key is already set. Exiting
+   echo API key is already set.
+   echo
+   echo In the event of an error with the API key, use the following command:
+   echo
+   echo unset HEROKU_API_KEY
+   echo
+   echo This will clear the API key and allow you to run heroku_config again.
+   echo Exiting with existing API key set.
 fi
