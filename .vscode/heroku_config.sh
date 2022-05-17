@@ -28,9 +28,11 @@ else
    read reset_trigger
    if [[ ${reset_trigger} == reset ]]; then
       unset HEROKU_API_KEY
+      unset reset_trigger
       echo
       echo API key removed!
    else
+      unset reset_trigger
       echo API key unchanged.
    fi
    echo
