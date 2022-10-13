@@ -11,40 +11,18 @@ import subprocess
 import sys
 from os.path import exists
 
-BASE_URL = "https://raw.githubusercontent.com/Code-Institute-Org/gitpod-full-template/master/"
+COLOURS = {"red": "\033[31m",
+           "blue": "\033[34m",
+           "green": "\033[32m",
+           "reset": "\033[0m",
+           "bold": "\033[1m"}
 
-BACKUP = True
-MIGRATE = False
+BASE_URL = "https://raw.githubusercontent.com/Code-Institute-Org/gitpod-full-template/main/"
 CURRENT_VERSION = 1.0
 THIS_VERSION = 1.0
 
 
-MIGRATE_FILE_LIST = [{"filename": ".theia/settings.json",
-                      "url": ".vscode/settings.json"
-                      },
-                     {"filename": ".gitpod.yml",
-                      "url": ".gitpod.yml"
-                      },
-                     {"filename": ".gitpod.dockerfile",
-                      "url": ".gitpod.dockerfile"
-                      },
-                     {"filename": ".theia/heroku_config.sh",
-                      "url": ".vscode/heroku_config.sh"
-                      },
-                      {"filename": ".theia/uptime.sh",
-                      "url": ".vscode/uptime.sh"
-                      },
-                     {"filename": ".theia/init_tasks.sh",
-                      "url": ".vscode/init_tasks.sh"
-                      }]
-
-UPGRADE_FILE_LIST = [{"filename": ".vscode/client.cnf",
-                      "url": ".vscode/client.cnf"
-                      },
-                     {"filename": ".vscode/mysql.cnf",
-                      "url": ".vscode/mysql.cnf"
-                      },
-                     {"filename": ".vscode/settings.json",
+UPGRADE_FILE_LIST = [{"filename": ".vscode/settings.json",
                       "url": ".vscode/settings.json"
                       },
                      {"filename": ".vscode/launch.json",
@@ -70,10 +48,25 @@ UPGRADE_FILE_LIST = [{"filename": ".vscode/client.cnf",
                      },
                      {"filename": ".vscode/arctictern.py",
                       "url": ".vscode/arctictern.py"
-                      }]
+                     }]
 
 FINAL_LINES = "\nexport POST_UPGRADE_RUN=1\nsource ~/.bashrc\n"
 
+
+def get_versions():
+
+    if exists(".vscode/version.txt"):
+        with open(".vscode/version.txt", "r") as f:
+            THIS_VERSION = float(f.read().strip())
+    else:
+        with open(".vscode/version.txt", "w") as f:
+            f.write(str(THIS_VERSION))
+    
+    r = requests.get(BASE_URL + ".vscode/version.txt")
+    CURRENT_VERSION = float(r.content)
+
+    return {"this_version": THIS_VERSION,
+            "current_version": CURRENT_VERSION}
 
 def needs_upgrade():
     """
@@ -82,20 +75,20 @@ def needs_upgrade():
     Returns True if upgrade is needed, False if not.
     """
 
-    if exists(".vscode/version.txt"):
-        with open(".vscode/version.txt", "r") as f:
-            THIS_VERSION = float(f.read().strip())
-    else:
-        THIS_VERSION = 1.0
-        with open(".vscode/version.txt", "w") as f:
-            f.write(str(THIS_VERSION))
+    versions = get_versions()
     
-    r = requests.get(BASE_URL + ".vscode/version.txt")
-    CURRENT_VERSION = float(r.content)
-    print(f"Upstream version: {CURRENT_VERSION}")
-    print(f"Local version: {THIS_VERSION}")
+    print(f"Upstream version: {versions['current_version']}")
+    print(f"Local version: {versions['this_version']}")
 
-    return CURRENT_VERSION > THIS_VERSION
+    return versions["current_version"] > versions["this_version"]
+
+
+def write_version():
+
+    versions = get_versions()
+
+    with open(".vscode/version.txt", "w") as f:
+        f.write(str(versions["current_version"]))
 
 
 def build_post_upgrade():
@@ -114,7 +107,7 @@ def build_post_upgrade():
         with open(".vscode/post_upgrade.sh", "w") as f:
             f.writelines(content)
     
-    print("Built post_upgrade.sh. Restart your workspace for it to take effect")
+    print("Built post_upgrade.sh. Restart your workspace for it to take effect.")
 
 
 def process(file, suffix):
@@ -125,15 +118,23 @@ def process(file, suffix):
                suffix - the suffix to the BASE_URL
     """
 
-    if BACKUP:
+    if file == ".gitpod.dockerfile" or file == ".gitpod.yml":
         try:
-            shutil.copyfile(file, f"{file}.bak")
+            shutil.copyfile(file, f"{file}.tmp")
         except FileNotFoundError:
-            print(f"{file} not found, a new one will be created")
+            pass
 
     with open(file, "wb") as f:
         r = requests.get(BASE_URL + suffix)
         f.write(r.content)
+
+    if exists(f"{file}.tmp"):
+        result = os.system(f"diff -q {file} {file}.tmp > /dev/null")
+        if result != 0:
+            os.remove(f"{file}.tmp")
+            return True
+    
+    return False
 
 
 def start_migration():
@@ -141,55 +142,43 @@ def start_migration():
     Calls the process function and
     renames the directory
     """
-    if not os.path.isdir(".theia") and MIGRATE:
-        sys.exit("The .theia directory does not exist")
+    push_and_recreate = False
 
-    FILE_LIST = MIGRATE_FILE_LIST if MIGRATE else UPGRADE_FILE_LIST
-
-    if not MIGRATE and not os.path.isdir(".vscode"):
+    if not os.path.isdir(".vscode"):
         print("Creating .vscode directory")
         os.mkdir(".vscode")
 
-    for file in FILE_LIST:
+    for file in UPGRADE_FILE_LIST:
         print(f"Processing: {file['filename']}")
-        process(file["filename"], file["url"])
-
-    if MIGRATE and os.path.isdir(".vscode"):
-        print(".vscode directory already exists")
-        if input("Overwrite? Y/N ").lower() == "y":
-            shutil.rmtree(".vscode")
-        else:
-            print("You will need to manually remove the .theia directory after migration.")
-
-    if MIGRATE and not os.path.isdir(".vscode"):
-        print("Renaming directory")
-        os.rename(".theia", ".vscode")
+        result = process(file["filename"], file["url"])
+        if result == True:
+            push_and_recreate = True
     
-    if not MIGRATE and needs_upgrade():
+    if push_and_recreate:
+        write_version()
+
+    if needs_upgrade() and not push_and_recreate:
         build_post_upgrade()
 
     print("Changes saved.")
     print("Please add, commit and push to GitHub.")
     print("You may need to stop and restart your workspace for")
-    print("the changes to take effect.")
+    print("the changes to take effect.\n")
+
+    if push_and_recreate:
+        print(f"{COLOURS['red']}{COLOURS['bold']}*** IMPORTANT INFORMATION ***{COLOURS['reset']}")
+        print("The files used to create this workspace have been updated")
+        print("Please download any files that are in .gitignore and")
+        print("recreate this workspace by clicking on the Gitpod button")
+        print("in GitHub. Then, upload your saved files again.\n")
 
 
 if __name__ == "__main__":
 
-    BACKUP = "--nobackup" not in sys.argv
-    MIGRATE = "--migrate" in sys.argv
-
-    print("CI Template Migration Utility 0.2")
-    print("---------------------------------")
-    print("The default action is to upgrade the workspace to the latest version.")
-    print(f"Usage: python3 {sys.argv[0]} [--nobackup --migrate]")
-
-    if not BACKUP:
-        print("If the --nobackup switch is provided, then changed files will not be backed up.")
-    if not MIGRATE:
-        print("If the --migrate switch is provided, the repo will be migrated from Theia to VS Code")
-
-    print()
+    print(f"\n🐦 {COLOURS['blue']}{COLOURS['bold']}ArcticTern version 0.3{COLOURS['reset']}")
+    print("CI Template Migration Utility")
+    print("-----------------------------")
+    print("Upgrades the workspace to the latest version.\n")
 
     if input("Start? Y/N ").lower() == "y":
         start_migration()
