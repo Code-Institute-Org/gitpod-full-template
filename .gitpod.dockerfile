@@ -39,13 +39,8 @@ ENV PATH=$PYTHONUSERBASE/bin:$PATH
 # Setup Heroku CLI
 RUN curl https://cli-assets.heroku.com/install.sh | sh
 
-# Setup MongoDB
-RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 20691eec35216c63caf66ce1656408e390cfb1f5 && \
-    sudo sh -c 'echo "deb http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list'  && \
-    sudo apt-get update -y  && \
-    sudo touch /etc/init.d/mongod  && \
-    sudo apt-get install -y mongodb-org-shell  && \
-    sudo apt-get install -y links  && \
+# Setup Links
+RUN sudo apt-get install -y links  && \
     sudo apt-get clean -y && \
     sudo rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* && \
     sudo chown -R gitpod:gitpod /home/gitpod/.cache/heroku/
