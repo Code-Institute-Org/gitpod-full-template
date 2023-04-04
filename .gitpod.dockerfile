@@ -39,9 +39,7 @@ ENV PATH=$PYTHONUSERBASE/bin:$PATH
 # Setup Heroku CLI
 RUN curl https://cli-assets.heroku.com/install.sh | sh
 
-# Setup Links
-RUN sudo apt-get install -y links  && \
-    sudo apt-get clean -y && \
+RUN sudo apt-get clean -y && \
     sudo rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* && \
     sudo chown -R gitpod:gitpod /home/gitpod/.cache/heroku/
 
