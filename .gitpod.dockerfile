@@ -83,7 +83,7 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
     echo 'alias font_fix="python3 $GITPOD_REPO_ROOT/.vscode/font_fix.py"' >> ~/.bashrc && \
     echo 'alias set_pg="export PGHOSTADDR=127.0.0.1"' >> ~/.bashrc && \
     echo 'alias mongosh=mongo' >> ~/.bashrc && \
-    echo 'alias make_url="python3 $GITPOD_REPO_ROOT/.vscode/make_url.py "' >> ~/.bashrc && \
+    echo 'alias make_url="python3 $GITPOD_REPO_ROOT/.vscode/make_url.py "' >> ~/.bashrc
 
 # Local environment variables
 ENV PORT="8080"
