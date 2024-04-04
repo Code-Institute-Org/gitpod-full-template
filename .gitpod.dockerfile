@@ -17,7 +17,7 @@ ENV PATH=$PATH:/home/gitpod/.nvm/versions/node/v${NODE_VERSION}/bin
 ### Python ###
 USER gitpod
 RUN sudo install-packages python3-pip
-ENV PYTHON_VERSION 3.9.17
+ENV PYTHON_VERSION 3.12.2
 
 ENV PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH
 RUN curl -fsSL https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash \
@@ -84,18 +84,10 @@ RUN echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"
     echo 'alias set_pg="export PGHOSTADDR=127.0.0.1"' >> ~/.bashrc && \
     echo 'alias mongosh=mongo' >> ~/.bashrc && \
     echo 'alias make_url="python3 $GITPOD_REPO_ROOT/.vscode/make_url.py "' >> ~/.bashrc && \
-    echo 'FILE="$GITPOD_REPO_ROOT/.vscode/post_upgrade.sh"' >> ~/.bashrc && \
-    echo 'if [ -z "$POST_UPGRADE_RUN" ]; then' >> ~/.bashrc && \
-    echo '  if [[ -f "$FILE" ]]; then' >> ~/.bashrc && \
-    echo '    . "$GITPOD_REPO_ROOT/.vscode/post_upgrade.sh"' >> ~/.bashrc && \
-    echo "  fi" >> ~/.bashrc && \
-    echo "fi" >> ~/.bashrc
 
 # Local environment variables
-# C9USER is temporary to allow the MySQL Gist to run
-ENV C9_USER="root"
 ENV PORT="8080"
 ENV IP="0.0.0.0"
-ENV C9_HOSTNAME="localhost"
+
 # Despite the scary name, this is just to allow React and DRF to run together on Gitpod
 ENV DANGEROUSLY_DISABLE_HOST_CHECK=true
